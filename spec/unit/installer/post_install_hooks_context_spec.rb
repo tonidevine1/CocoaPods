@@ -16,7 +16,7 @@ module Pod
                                      'Release' => [pod_target])
       umbrella.stubs(:platform).returns(Platform.new(:ios, '8.0'))
 
-      result = Installer::PostInstallHooksContext.generate(sandbox, pods_project, [umbrella])
+      result = Installer::PostInstallHooksContext.generate(sandbox, pods_project, [pods_project], [umbrella])
       result.class.should == Installer::PostInstallHooksContext
       result.sandbox_root.should == '/path'
       result.pods_project.should == pods_project
